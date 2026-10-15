@@ -29,14 +29,17 @@ var subtitle = page.subtitle || page.title
 <div id="banner" class="banner"<%- banner_attrs %>
      style="background: url('<%- url_for(banner_img) %>') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
+    <% if (is_home()) { %><div class="hero-overlay"></div><% } %>
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, <%= banner_mask_alpha %>)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          <% if(theme.fun_features.typing.enable && in_scope(theme.fun_features.typing.scope)) { %>
-            <span id="subtitle" data-typed-text="<%= subtitle %>"></span>
-          <% } else { %>
-            <span id="subtitle"><%- subtitle %></span>
-          <% } %>
+            <div class="hero-content fade-in-up">
+        <div class="hero-eyebrow"><%= config.title %></div>
+        <div class="hero-title"><%= config.subtitle %></div>
+        <div class="hero-divider"></div>
+        <div class="hero-desc">向下划动进入博客文章</div>
+        <div class="hero-pills">
+          <span class="pill">学习笔记</span>
+          <span class="pill">技术分享</span>
+          <span class="pill">生活随笔</span>
         </div>
 
         <% if (is_post()) { %>

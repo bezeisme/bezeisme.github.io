@@ -1,0 +1,98 @@
+/* ==========================================================
+   自定义样式 —— 首页 Hero（仿「凉宫秋月的电研部」）
+   颜色 / 尺寸都在这个文件里改，改完浏览器 Ctrl+F5 即可
+   ========================================================== */
+
+:root {
+  --accent: #93D5DC;        /* 清水蓝：分割线、点缀色 */
+}
+
+/* ---------- hero 容器 ---------- */
+.hero-content {
+  width: 88%;
+  max-width: 1150px;
+  color: #fff;
+  text-align: left;
+}
+
+/* 左上角小字（站名） */
+.hero-eyebrow {
+  font-size: 1rem;
+  letter-spacing: .18em;
+  opacity: .9;
+  margin-bottom: 1.4rem;
+}
+
+/* 大标题 */
+.hero-title {
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.18;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, .35);
+}
+
+/* ---------- 分割线：两头透明、中间实 ---------- */
+.hero-divider {
+  width: 96px;              /* 两头淡出会显得短，所以比 72px 稍加宽 */
+  height: 2px;
+  margin: 1.8rem 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg,
+              transparent 0%,
+              var(--accent) 50%,
+              transparent 100%);
+}
+
+/* 引导语 */
+.hero-desc {
+  font-size: 1rem;
+  opacity: .85;
+  margin-bottom: 1.6rem;
+}
+
+/* ---------- 胶囊标签 ---------- */
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+
+.hero-pills .pill {
+  padding: .3rem .95rem;
+  border: 1px solid rgba(255, 255, 255, .5);
+  border-radius: 999px;
+  font-size: .875rem;
+  background: rgba(255, 255, 255, .08);
+  backdrop-filter: blur(4px);
+  transition: all .25s ease;
+}
+
+.hero-pills .pill:hover {
+  background: rgba(255, 255, 255, .22);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* ---------- 左深右浅的横向遮罩（只出现在首页 banner） ---------- */
+.banner .hero-overlay {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  pointer-events: none;
+  background: linear-gradient(to right,
+              rgba(18, 14, 20, .88) 0%,
+              rgba(18, 14, 20, .72) 34%,
+              rgba(18, 14, 20, .24) 68%,
+              rgba(18, 14, 20, .06) 100%);
+}
+
+/* ---------- 移动端 ---------- */
+@media (max-width: 768px) {
+  .hero-title { font-size: 2rem; }
+  .hero-eyebrow { font-size: .9rem; margin-bottom: 1rem; }
+  .banner .hero-overlay {
+    background: linear-gradient(to bottom,
+                rgba(18, 14, 20, .66) 0%,
+                rgba(18, 14, 20, .44) 42%,
+                rgba(18, 14, 20, .82) 100%);
+  }
+}
