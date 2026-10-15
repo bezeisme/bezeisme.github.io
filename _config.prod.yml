@@ -1,0 +1,11 @@
+# ==========================================================
+# 线上构建用的配置覆盖（只在 hexo generate --config _config.yml,_config.prod.yml 时生效）
+# 本地预览用它：hexo server   →   url 仍是 localhost:4000
+# ==========================================================
+
+# 线上站点地址（GitHub Pages 用户站点，根路径）
+url: https://bezeisme.github.io
+
+# 如果你的仓库名不是 <用户名>.github.io（即"项目站点"），
+# 网址会变成 https://<用户名>.github.io/<仓库名>/，那就把下面这行也打开：
+# root: /<仓库名>/
