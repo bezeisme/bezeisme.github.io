@@ -31,7 +31,8 @@ var subtitle = page.subtitle || page.title
   <div class="full-bg-img">
     <% if (is_home()) { %><div class="hero-overlay"></div><% } %>
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, <%= banner_mask_alpha %>)">
-            <div class="hero-content fade-in-up">
+      <% if (is_home()) { %>
+      <div class="hero-content">
         <div class="hero-eyebrow"><%= config.title %></div>
         <div class="hero-title"><%= config.subtitle %></div>
         <div class="hero-divider"></div>
@@ -41,11 +42,21 @@ var subtitle = page.subtitle || page.title
           <span class="pill">技术分享</span>
           <span class="pill">生活随笔</span>
         </div>
-
+      </div>
+      <% } else { %>
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          <% if(theme.fun_features.typing.enable && in_scope(theme.fun_features.typing.scope)) { %>
+            <span id="subtitle" data-typed-text="<%= subtitle %>"></span>
+          <% } else { %>
+            <span id="subtitle"><%- subtitle %></span>
+          <% } %>
+        </div>
         <% if (is_post()) { %>
           <%- inject_point('postMetaTop') %>
         <% } %>
       </div>
+      <% } %>
 
       <% if (theme.scroll_down_arrow.enable && theme.scroll_down_arrow.banner_height_limit <= banner_img_height && page.layout !== '404') { %>
         <div class="scroll-down-bar">
