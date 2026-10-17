@@ -121,6 +121,12 @@
   }
 }
 
+/* ---------- 正文里"只有链接的段落"自动居中 ---------- */
+/* 用法：Markdown 里单独一行写 [传送门](https://xxx)，不用任何 HTML 标签就会居中 */
+.markdown-body p:has(> a:only-child) {
+  text-align: center;
+}
+
 /* ---------- 移动端 ---------- */
 @media (max-width: 768px) {
   .hero-title { font-size: 2rem; }
